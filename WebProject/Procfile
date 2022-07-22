@@ -1,1 +1,1 @@
-web: gunicorn Ample.wsgi --log-file -
+web: gunicorn WebProject.wsgi --log-file -
