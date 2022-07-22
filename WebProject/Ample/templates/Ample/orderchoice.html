@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login V18</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+
+
+</head>
+
+<body style="background-color: whitesmoke;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'UserProfile' %}">Dashboard<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="login.html">Log Out <span class="sr-only"></span></a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <h1 style="text-align:center;">Order#{{orderID}}</h1>
+    <div class="container" style="width: 70%; background-color: white;">
+
+            <div class="col-12" style="text-align:center ;">
+
+                
+                <!-- Trigger -->
+                
+                <button class="btn"  data-clipboard-target="#foo" onclick="myFunction()" >
+                    <input style="width: 250px;" id="myInput" value="127.0.0.1:8000{% url 'ReciverOrder' orderID %}">
+                    <img style="height:30px;width:40px;border-radius: 10%;" src="{% static 'Ample/images/copylogo.png' %}" alt="Copy to clipboard">
+                </button>
+                <script>
+                    function myFunction() {
+                    /* Get the text field */
+                    var copyText = document.getElementById("myInput");
+
+                    /* Select the text field */
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(copyText.value);
+
+                    /* Alert the copied text */
+                    alert("Copied the reciver's link: " + copyText.value);
+                    } 
+                </script>
+
+            </div>
+            <div class="col-12" style="text-align:center ;">
+                <h2>OR</h2>
+            </div>
+
+
+            <div class="col-12" style="text-align:center ;">
+                <button class="btn btn-primary" ><a style="color:white;" href="{% url 'ReciverOrder' orderID %}" target="_blank"> Send Order To </a></button>
+            </div>
+
+
+            <div class="col-12">
+                <br>
+            </div>
+    </div>
+    <br>
+    <br>
+
+    <script type="text/javascript">
+        var today = new Date();
+        
+       
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        
+        document.getElementById("displayDateTime").innerHTML =  dateTime;
+      
+        </script>
+
+        <script src="{% static 'Ample/js/clipboard.min.js' %}"></script>
+        <script>
+            new ClipboardJS('.btn');
+        </script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
